@@ -1,0 +1,17 @@
+modmap: 
+  - name: main remaps
+    remap:
+      # Swap LeftCtrl and LeftAlt
+      KEY_LEFTCTRL: KEY_LEFTALT
+      KEY_LEFTALT: KEY_LEFTCTRL
+
+      # Remap RightAlt to RightMeta 
+      KEY_RIGHTALT: KEY_RIGHTMETA
+
+      # Swap CapsLock and Esc
+      # Hold CapsLock for RightAlt
+      KEY_ESC: KEY_CAPSLOCK
+      KEY_CAPSLOCK:
+        held: KEY_RIGHTALT
+        alone: KEY_ESC
+        alone_timeout_millis: 200

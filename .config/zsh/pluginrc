@@ -1,0 +1,20 @@
+() {
+	local ZPLUGINDIR=$ZDOTDIR/plugins
+
+	apply() {
+		local github=$1
+		local plugin=$2
+
+	if [ ! -d "${ZPLUGINDIR}/${plugin}" ]; then
+		echo "WARNING: ${plugin} not found. Installing..."
+		git clone "https://www.github.com/${github}/${plugin}" "${ZPLUGINDIR}/${plugin}"
+	else
+		source "${ZPLUGINDIR}/${plugin}/${plugin}.plugin.zsh"
+	fi
+	}
+
+	apply zsh-users zsh-syntax-highlighting
+	apply zsh-users zsh-completions
+	apply zsh-users zsh-autosuggestions
+	apply Aloxaf fzf-tab
+}
